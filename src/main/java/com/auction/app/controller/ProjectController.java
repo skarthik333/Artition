@@ -71,11 +71,24 @@ public class ProjectController {
 	
 	@RequestMapping("/createAuction")
 	public String projectPage(Model model) {
-		Category ct=new Category();
-		ct.setCategoryId(1);
-		ct.setCategoryName("Game");
-		ct.setActive(1);
-		categoryRepository.save(ct);
+		Category ct0=new Category();
+		ct0.setCategoryId(0);
+		ct0.setCategoryName("Painting");
+		ct0.setActive(0);
+		
+		Category ct1=new Category();
+		ct1.setCategoryId(1);
+		ct1.setCategoryName("Scenery");
+		ct1.setActive(1);
+		
+		Category ct2=new Category();
+		ct2.setCategoryId(2);
+		ct2.setCategoryName("Nature");
+		ct2.setActive(2);
+		
+		categoryRepository.save(ct0);
+		categoryRepository.save(ct1);
+		categoryRepository.save(ct2);
 		model.addAttribute("categories", categoryRepository.findAll());
 		return "CreateAuction";
 	}
@@ -103,14 +116,14 @@ public class ProjectController {
 					File realFile=new File(myFile.getAbsolutePath()+"/"+file.getOriginalFilename());
 					file.transferTo(realFile);
 					//Adding Image To Database
-					AuctionImage image=new AuctionImage(createdAuction, file.getOriginalFilename());
+					AuctionImage image=new AuctionImage(createdAuction, "auction/images/"+file.getOriginalFilename());
 					auctionImageRepository.save(image);
 						
 					System.out.println(realFile.getAbsolutePath());
 					
 //					String fileName=(String) getRandomImage();
 //					AuctionImage image=new AuctionImage(createdAuction, fileName);
-					auctionImageRepository.save(image);
+//					auctionImageRepository.save(image);
 					
 					
 					

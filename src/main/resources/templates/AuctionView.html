@@ -35,14 +35,15 @@ $(document).ready(function(){
 		$.post("/auction/[[${auction.auctionId}]]/addBid",
     		  	{
       		
-				bidAmount:$('#bidPrice').val()
+				bidAmount:$('#bidPrice').val(),
+				minBidAmount:$('#sPrice').val()
     		 
     		  	},
     		  	function(a){
      		  		var data=a.split(',');
-     		  		
-     		  		if(data[0]=="error")
+     		  		if(data[0]=="error"){
      		  			$.notify(data[1]);
+     		  		}
      		  		else{
      		  			refreshData();
      		  			$.notify(data[1], "success");
@@ -194,8 +195,7 @@ var x = setInterval(function() {
 						<div class="single-price">
 							<ul>
 								<li th:text="${auction.auctionStartingPrice}" ><small>Starting Price</small></li>
-								<input type="hidden" id="sPrice" th:text="${auction.auctionStartingPrice}" >
-<!-- 								<li><a href="../#"><i class="fa fa-gift" aria-hidden="true"></i>Apply Coupon</a></li> -->
+								<input type="hidden" class="form-control" id="sPrice" th:text="${auction.auctionStartingPrice}" th:value="${auction.auctionStartingPrice}" />
 							</ul>
 							
 						</div>

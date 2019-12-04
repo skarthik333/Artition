@@ -103,13 +103,18 @@ public class ProductController {
 	
 	@RequestMapping(path = "/auction/{auctionId}/addBid",method = RequestMethod.POST)
 	@ResponseBody
-	public String postBid(@PathVariable(value="auctionId") Integer auctionId,Double bidAmount,Model model) {
-		System.out.println(model);
+	public String postBid(@PathVariable(value="auctionId") Integer auctionId,Double bidAmount, Double basePrice, Model model) {
+		System.out.println("Model is: "+model);
 		String username=SecurityContextHolder.getContext().getAuthentication().getName();
 		User whoAmI=userRepository.findByUsername(username);
 		Auction auction=auctionRepository.findById(auctionId).get();
 		
 		if(auction!=null && whoAmI.getUserId() != auction.getAuctionBy().getUserId()) {
+			
+			if(bidAmount <= basePrice)
+			{
+				return "error,Bid amount should be greater then base price.";
+			}
 			AuctionBids bid=new AuctionBids();
 			bid.setAuction(auction);
 			bid.setBidOn(LocalDateTime.now());
