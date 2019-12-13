@@ -36,7 +36,7 @@ $(document).ready(function(){
     		  	{
       		
 				bidAmount:$('#bidPrice').val(),
-				minBidAmount:$('#sPrice').val()
+				basePrice:$('#sPrice').val()
     		 
     		  	},
     		  	function(a){
@@ -148,6 +148,8 @@ var x = setInterval(function() {
 			           
 			           	<h2 style="color:#1e1e1e; font-weight: bolder; text-decoration: underline;" ><b th:text="${winner.auctionWonBy.username}"></b></h2>
 			            <h4 style="padding-bottom:50px; color:#1e1e1e " > Total Bids Placed : [[${bidPlaced}]] </h4>
+			            
+			            
 			        </div>
 			      
 			    </div>
