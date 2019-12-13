@@ -87,6 +87,7 @@ public class ProductController {
 			model.addAttribute("endDate", formatDateTime);
 			model.addAttribute("owner",user.getUserId()==auction.getAuctionBy().getUserId());
 			model.addAttribute("bidPlaced", auctionBidsRepository.findByAuction(auction).size());
+			model.addAttribute("currentusername", username);
 			return "AuctionView";
 				
 		}

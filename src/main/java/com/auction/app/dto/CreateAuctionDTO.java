@@ -74,7 +74,7 @@ public class CreateAuctionDTO {
 	}
 	
 	public boolean isDataValid() {
-		if(title.isEmpty() || description.isEmpty() || startingPrice<=0 || category<=0 || endingDate==null || multiPartFiles==null)
+		if(title.isEmpty() || description.isEmpty() || startingPrice<=0 || category<0 || endingDate==null || multiPartFiles==null)
 			return false;
 		
 		return true;

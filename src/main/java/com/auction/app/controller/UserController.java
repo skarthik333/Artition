@@ -9,6 +9,7 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.crossstore.ChangeSetPersister.NotFoundException;
+import org.springframework.security.core.context.SecurityContextHolder;
 //import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 //import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -146,6 +147,15 @@ public class UserController {
 		}
 		
 		return "Something went wrong <br> Try refreshing page";
+	}
+	
+	@RequestMapping("/Profile")
+	public String getProfile(Model model) {
+		String username=SecurityContextHolder.getContext().getAuthentication().getName();
+		User user=userRepository.findByUsername(username);
+		System.out.println(user.getUsername());
+		model.addAttribute("user",user);
+		return "Profile";
 	}
 	
 }
