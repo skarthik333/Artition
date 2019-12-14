@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Profile</title>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="utf-8">
+	<meta name="keywords" content="Goggles a Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+<!-- Default-JavaScript --><script th:src="@{../js/jquery-2.2.3.js}"></script>
+
+<!-- Index-Page-CSS -->	<link rel="stylesheet" th:href="@{../css/styleView.css}"		 type="text/css" media="all"> 
+<!-- FlexSlider-CSS -->	<link rel="stylesheet" href="../css/flexslider.css" type="text/css" media="all">
+<!-- //Custom-Stylesheet-Links -->
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+<!-- Font-Awesome-File-Links -->
+<!-- CSS --> <link rel="stylesheet" href="../css/font-awesome.css" 		 type="text/css" media="all">
+<!-- TTF --> <link rel="stylesheet" href="../fonts/fontawesome-webfont.ttf" type="text/css" media="all">
+<!-- //Font-Awesome-File-Links -->
+
+</head>
+<body>
+<div  th:insert="Header.html"> </div>
+<div align="center"><h3>Profile</h3></div>
+<div class="row">
+					<div class="col-md-12" align="center">
+						<table class="table" style="width:40%">
+						  <thead>
+						    <tr>
+						      <th scope="col">Name    : <input type="hidden" id="fname" th:text="${user.username}" >
+							</th>
+						    </tr>
+						     <tr>
+						      <th scope="col">Email   : <input type="hidden" id="fname" th:text="${user.email}" >
+						      </th>
+						    </tr>
+						    <tr>
+						      <th scope="col">Address  : <input type="hidden" id="fname" th:text="${user.address}" ></th>
+						    </tr>
+						    <tr>
+						      <th scope="col">Contact  : <input type="hidden" id="fname" th:text="${user.phoneNumber}" ></th>
+						    </tr>
+						  </thead>
+					  	</table>
+					</div>
+				
+				</div>
+				
+
+</body>
+</html>
